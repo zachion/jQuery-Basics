@@ -30,7 +30,17 @@
 
             //$('#DataTable tr:odd').css('background-color', 'green');
 
-            alert($('div[title*="Title"]').html());
+            //alert($('div[title*="Title"]').html());
+
+            $(document).ready(function () {
+                var html =""; 
+                $('div.BlueDiv, div.RedDiv').each(function(index) {
+                    html += "<br>" + index + " " + $(this).text();
+                });
+            var output = $('#OutputDiv');
+                output.html(html);
+
+            });
         });
     </script>
 </head>
@@ -38,6 +48,7 @@
 <div id="TestDiv" title="Div Title asdf asdfsdf asdf">
     This is my div text
 </div>
+<div id="OutputDiv"></div>
 <div title="Contains Table">
     <table id="DataTable">
         <tr>
