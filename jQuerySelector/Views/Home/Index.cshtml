@@ -57,6 +57,20 @@
                 .css('background-color', 'yellow')
                 .css('color', 'black')
                 .css('font-size', '20pt');
+
+            //modifying the DOM
+            var tcb = $('#TableContainerDiv');
+            tcb.append('<span style="background-color:green">Append Child 1</span>');
+            tcb.prepend('<span style="background-color:green">Prepend Child 1</span>');
+
+            //wrap
+            $('span.Foo').wrap('<div class="RedDiv ParentWrapper" />');
+            $('div.ParentWrapper').each(function() {
+                alert($(this).html());
+            });
+
+            //Remove 
+            $('div.ParentWrapper').remove();
         });
     </script>
 </head>
@@ -65,7 +79,7 @@
     This is my div text
 </div>
 <div id="OutputDiv"></div>
-<div title="Contains Table">
+<div id ="TableContainerDiv" title="Contains Table">
     <table id="DataTable">
         <tr>
             <td>Cell 1 Row 1</td>
@@ -94,6 +108,9 @@
 <br />
 <span class="BlueDiv">This is my blue span</span>
 <br />
+<span class="Foo">Span 1</span>
+<span class="Foo">Span 2</span>
+<span id ="Span3" class="Foo">Span 3</span>
 <div class="RedDiv">
     <span>Red div</span>
 </div>
